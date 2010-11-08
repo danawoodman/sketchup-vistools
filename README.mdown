@@ -1,7 +1,5 @@
 # Google SketchUp Utilities
 
-[TOC]
-
 ## Description
 
 Google SketchUp Utilities provides a few useful tools to help you in working with layers and entities within your models. The tools are as follows:
