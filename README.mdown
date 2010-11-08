@@ -42,4 +42,8 @@ Released under a BSD license.
 
 ## Author
 
-This plugin was created by Dana Woodman <dana@danawoodman.com> (<http://www.danawoodman.com>), 2010.
+This plugin was created by [Dana Woodman](http://www.danawoodman.com) <dana@danawoodman.com>, 2010.
+
+## Credits
+
+[Wireframe Mono Icons](http://www.iconfinder.com/search/?q=iconset%3Acc_mono_icon_set) by [Gentleface.com](http://www.gentleface.com/).
