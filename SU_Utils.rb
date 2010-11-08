@@ -17,7 +17,7 @@ class SU_Utils
   def hide_layers
     model = Sketchup.active_model
     selection = model.selection
-    selection_layers = selection.to_a.collect { |s| s.layer }.to_a
+    selection_layers = selection.collect { |s| s.layer }.to_a
     if !selection.empty?
       model.start_operation "Hide selected layers"
           selection_layers.each { |l| l.visible = false }
@@ -31,7 +31,7 @@ class SU_Utils
     model = Sketchup.active_model
     selection = model.selection
     layers = model.layers
-    selection_layers = selection.to_a.collect { |s| s.layer }.to_a
+    selection_layers = selection.collect { |s| s.layer }.to_a
     layers_to_hide = layers.to_a - selection_layers.to_a
     if !selection.empty?
       model.start_operation "Isolate selected layers"
@@ -47,7 +47,7 @@ class SU_Utils
     selection = model.selection
     if !selection.empty?
       model.start_operation "Hide selected entities"
-          selection.to_a.each { |e| e.visible = false }
+          selection.each { |e| e.visible = false }
       model.commit_operation    
     end
   end
@@ -72,7 +72,7 @@ class SU_Utils
     model = Sketchup.active_model
     layers = model.layers
     entities = model.entities
-    model.start_operation "Show all"
+    model.start_operation "Show all layers and entities"
       layers.each { |l| l.visible = true }
       entities.each { |e| e.visible = true }
     model.commit_operation
@@ -102,9 +102,7 @@ if ( not file_loaded?("SU_Utils.rb") )
   }
   hide_layers_cmd.small_icon = "SU_Utils/images/hide_layers_small.png"
   hide_layers_cmd.large_icon = "SU_Utils/images/hide_layers_large.png"
-  hide_layers_cmd.tooltip = "Hide selected layers"
-  hide_layers_cmd.menu_text = "Hide seleted layers"
-  hide_layers_cmd.status_bar_text = "Hiding selected layers..."
+  hide_layers_cmd.tooltip, hide_layers_cmd.menu_text, hide_layers_cmd.status_bar_text = "Hide selected layers"
   
   # Create the isolate_layers command.
   isolate_layers_cmd = UI::Command.new("Isolate Layers") { 
@@ -112,9 +110,7 @@ if ( not file_loaded?("SU_Utils.rb") )
   }
   isolate_layers_cmd.small_icon = "SU_Utils/images/isolate_layers_small.png"
   isolate_layers_cmd.large_icon = "SU_Utils/images/isolate_layers_large.png"
-  isolate_layers_cmd.tooltip = "Isolate selected layers"
-  isolate_layers_cmd.menu_text = "Isolate seleted layers"
-  isolate_layers_cmd.status_bar_text = "Isolating selected layers..."
+  isolate_layers_cmd.tooltip, isolate_layers_cmd.menu_text, isolate_layers_cmd.status_bar_text = "Isolate selected layers"
   
   # Create the hide_entities command.
   hide_entities_cmd = UI::Command.new("Hide Entities") { 
@@ -122,9 +118,7 @@ if ( not file_loaded?("SU_Utils.rb") )
   }
   hide_entities_cmd.small_icon = "SU_Utils/images/hide_entities_small.png"
   hide_entities_cmd.large_icon = "SU_Utils/images/hide_entities_large.png"
-  hide_entities_cmd.tooltip = "Hide selected entities"
-  hide_entities_cmd.menu_text = "Hide seleted entities"
-  hide_entities_cmd.status_bar_text = "Hiding selected entities..."
+  hide_entities_cmd.tooltip, hide_entities_cmd.menu_text, hide_entities_cmd.status_bar_text = "Hide selected entities"
   
   # Create the hide_layers command.
   isolate_entities_cmd = UI::Command.new("Isolate Entities") { 
@@ -132,9 +126,7 @@ if ( not file_loaded?("SU_Utils.rb") )
   }
   isolate_entities_cmd.small_icon = "SU_Utils/images/isolate_entities_small.png"
   isolate_entities_cmd.large_icon = "SU_Utils/images/isolate_entities_large.png"
-  isolate_entities_cmd.tooltip = "Isolate selected entities"
-  isolate_entities_cmd.menu_text = "Isolate selected entities"
-  isolate_entities_cmd.status_bar_text = "Isolating selected entities..."
+  isolate_entities_cmd.tooltip, isolate_entities_cmd.menu_text, isolate_entities_cmd.status_bar_text = "Isolate selected entities"
   
   # Create the hide_layers command.
   show_all_cmd = UI::Command.new("Show All") { 
@@ -142,9 +134,7 @@ if ( not file_loaded?("SU_Utils.rb") )
   }
   show_all_cmd.small_icon = "SU_Utils/images/show_all_small.png"
   show_all_cmd.large_icon = "SU_Utils/images/show_all_large.png"
-  show_all_cmd.tooltip = "Show all layers and entities"
-  show_all_cmd.menu_text = "Show all"
-  show_all_cmd.status_bar_text = "Showing all layers and entities..."
+  show_all_cmd.tooltip, show_all_cmd.menu_text, show_all_cmd.status_bar_text = "Show all layers and entities"
   
   # ----------------------------------------------------------------------------
   # Create and add the Utilities submenu.

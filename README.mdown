@@ -6,7 +6,7 @@ Google SketchUp Utilities provides a few useful tools to help you in working wit
 
 * **Hide Layers** -- Hide all layers that are within your selection.
 * **Isolate Layers** -- Show all layers that are within your selection.
-* **Hide Entities** -- Show all entities (lines/faces/groups/components) that that are within your selection.
+* **Hide Entities** -- Hide all entities (lines/faces/groups/components) that that are within your selection.
 * **Isolate Entities** -- Show all entities (lines/faces/groups/components) that are within your selection.
 * **Show All** -- Show all layers and entities within your model.
 
