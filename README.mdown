@@ -1,0 +1,47 @@
+# Google SketchUp Utilities
+
+[TOC]
+
+## Description
+
+Google SketchUp Utilities provides a few useful tools to help you in working with layers and entities within your models. The tools are as follows:
+
+* **Hide Layers** -- Hide all layers that are within your selection.
+* **Isolate Layers** -- Show all layers that are within your selection.
+* **Hide Entities** -- Show all entities (lines/faces/groups/components) that that are within your selection.
+* **Isolate Entities** -- Show all entities (lines/faces/groups/components) that are within your selection.
+* **Show All** -- Show all layers and entities within your model.
+
+The plugin with create a Toolbar with buttons for each tool. It will also create a right-click context menu called "Utilities" which will let you right click on a selection to perform the above actions. Finally, the plugin will add a menu item to the "Plugins" menu.
+
+You can map these tools to short cut keys to make it even faster to use. Just go to "`File` -> `Preferences`" and go to `Shortcuts`. I mapped mine in the follow ways:
+
+* "Hide Layers" mapped to `Shift H`.
+* "Isolate Layers" mapped to `Shift I`.
+* "Hide Entities" mapped to `H`.
+* "Isolate Entities" mapped to `I`.
+* "Show All" mapped to `Shift A`.
+
+You can of course map them to any keys you want!
+
+## Installation
+
+Copy the file `SU_Utils.rb` and the directory `SU_Utils` into your SketchUp plugin directory:
+
+On a **Mac** it is usually here:
+
+    Macintosh HD/Library/Application Support/Google SketchUp X/SketchUp/
+
+On **Windows** it should be here:
+
+    C:\Program Files\Google\Google Sketchup X\Plugins\
+
+.. where `X` is the version of SketchUp you are running.
+
+## Licence
+
+Released under a BSD license.
+
+## Author
+
+This plugin was created by Dana Woodman <dana@danawoodman.com> <www.danawoodman.com> 2010.
