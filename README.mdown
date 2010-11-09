@@ -42,7 +42,7 @@ Released under a BSD license.
 
 ## Author
 
-This plugin was created by [Dana Woodman](http://www.danawoodman.com) <dana@danawoodman.com>, 2010.
+This plugin was created by [Dana Woodman](http://www.danawoodman.com) (<dana@danawoodman.com>), 2010.
 
 ## Credits
 

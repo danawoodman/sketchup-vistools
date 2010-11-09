@@ -12,70 +12,64 @@
 # shortcut keys to make it easy to work on a specific piece of your model.
 class SU_Utils
   
+  def initialize
+    @model = Sketchup.active_model
+    @selection = @model.selection
+    @entities = @model.entities
+    @layers = @model.layers
+  end
+  
   # Hide selected layers.
   # Grabs all layers in selection and turns their visibility off.
   def hide_layers
-    model = Sketchup.active_model
-    selection = model.selection
-    selection_layers = selection.collect { |s| s.layer }.to_a
-    if !selection.empty?
-      model.start_operation "Hide selected layers"
+    selection_layers = @selection.collect { |s| s.layer }.to_a
+    if !@selection.empty?
+      @model.start_operation "Hide selected layers"
           selection_layers.each { |l| l.visible = false }
-      model.commit_operation    
+      @model.commit_operation    
     end
   end
 
   # Isolate selected layers.
   # Hide all layers that are not within the selection.
   def isolate_layers
-    model = Sketchup.active_model
-    selection = model.selection
-    layers = model.layers
-    selection_layers = selection.collect { |s| s.layer }.to_a
-    layers_to_hide = layers.to_a - selection_layers.to_a
-    if !selection.empty?
-      model.start_operation "Isolate selected layers"
+    selection_layers = @selection.collect { |s| s.layer }.to_a
+    layers_to_hide = @layers.to_a - selection_layers.to_a
+    if !@selection.empty?
+      @model.start_operation "Isolate selected layers"
           layers_to_hide.each { |l| l.visible = false }
-      model.commit_operation    
+      @model.commit_operation    
     end
   end
 
   # Hide selected entities.
   # Hide all entities within the selection.
   def hide_entities
-    model = Sketchup.active_model
-    selection = model.selection
-    if !selection.empty?
-      model.start_operation "Hide selected entities"
-          selection.each { |e| e.visible = false }
-      model.commit_operation    
+    if !@selection.empty?
+      @model.start_operation "Hide selected entities"
+          @selection.each { |e| e.visible = false }
+      @model.commit_operation    
     end
   end
 
   # Isolate selected entities.
   # Hides all entities other than the selected entity.
   def isolate_entities
-    model = Sketchup.active_model
-    entities = model.entities
-    selection = model.selection
-    if !selection.empty?
-      model.start_operation "Isolate selected entities"
-          entities_to_hide = entities.to_a - selection.to_a
+    if !@selection.empty?
+      @model.start_operation "Isolate selected entities"
+          entities_to_hide = @entities.to_a - @selection.to_a
           entities_to_hide.each { |e| e.visible = false }
-      model.commit_operation    
+      @model.commit_operation    
     end
   end
 
   # Show all
   # Unhides all hidden layers and entities.
   def show_all
-    model = Sketchup.active_model
-    layers = model.layers
-    entities = model.entities
-    model.start_operation "Show all layers and entities"
-      layers.each { |l| l.visible = true }
-      entities.each { |e| e.visible = true }
-    model.commit_operation
+    @model.start_operation "Show all layers and entities"
+      @layers.each { |l| l.visible = true }
+      @entities.each { |e| e.visible = true }
+    @model.commit_operation
   end
 
 end
@@ -94,47 +88,62 @@ if ( not file_loaded?("SU_Utils.rb") )
   # Create the various commands
   # ----------------------------------------------------------------------------
   
-  utils = SU_Utils.new()
+  # utils = SU_Utils.new()
   
   # Create the hide_layers command.
   hide_layers_cmd = UI::Command.new("Hide Layers") { 
-    utils.hide_layers()
+    SU_Utils.new().hide_layers()
   }
   hide_layers_cmd.small_icon = "SU_Utils/images/hide_layers_small.png"
   hide_layers_cmd.large_icon = "SU_Utils/images/hide_layers_large.png"
-  hide_layers_cmd.tooltip, hide_layers_cmd.menu_text, hide_layers_cmd.status_bar_text = "Hide selected layers"
+  hide_layers_text = "Hide selected layers"
+  hide_layers_cmd.tooltip = hide_layers_text
+  hide_layers_cmd.menu_text = hide_layers_text
+  hide_layers_cmd.status_bar_text = hide_layers_text
   
   # Create the isolate_layers command.
   isolate_layers_cmd = UI::Command.new("Isolate Layers") { 
-    utils.isolate_layers()
+    SU_Utils.new().isolate_layers()
   }
   isolate_layers_cmd.small_icon = "SU_Utils/images/isolate_layers_small.png"
   isolate_layers_cmd.large_icon = "SU_Utils/images/isolate_layers_large.png"
-  isolate_layers_cmd.tooltip, isolate_layers_cmd.menu_text, isolate_layers_cmd.status_bar_text = "Isolate selected layers"
+  isolate_layers_text = "Isolate selected layers"
+  isolate_layers_cmd.tooltip = isolate_layers_text
+  isolate_layers_cmd.menu_text = isolate_layers_text
+  isolate_layers_cmd.status_bar_text = isolate_layers_text
   
   # Create the hide_entities command.
   hide_entities_cmd = UI::Command.new("Hide Entities") { 
-    utils.hide_entities()
+    SU_Utils.new().hide_entities()
   }
   hide_entities_cmd.small_icon = "SU_Utils/images/hide_entities_small.png"
   hide_entities_cmd.large_icon = "SU_Utils/images/hide_entities_large.png"
-  hide_entities_cmd.tooltip, hide_entities_cmd.menu_text, hide_entities_cmd.status_bar_text = "Hide selected entities"
+  hide_entities_text = "Hide selected entities"
+  hide_entities_cmd.tooltip = hide_entities_text
+  hide_entities_cmd.menu_text = hide_entities_text
+  hide_entities_cmd.status_bar_text = hide_entities_text
   
   # Create the hide_layers command.
   isolate_entities_cmd = UI::Command.new("Isolate Entities") { 
-    utils.isolate_entities()
+    SU_Utils.new().isolate_entities()
   }
   isolate_entities_cmd.small_icon = "SU_Utils/images/isolate_entities_small.png"
   isolate_entities_cmd.large_icon = "SU_Utils/images/isolate_entities_large.png"
-  isolate_entities_cmd.tooltip, isolate_entities_cmd.menu_text, isolate_entities_cmd.status_bar_text = "Isolate selected entities"
+  isolate_entities_text = "Isolate selected entities"
+  isolate_entities_cmd.tooltip = isolate_entities_text
+  isolate_entities_cmd.menu_text = isolate_entities_text
+  isolate_entities_cmd.status_bar_text = isolate_entities_text
   
   # Create the hide_layers command.
   show_all_cmd = UI::Command.new("Show All") { 
-    utils.show_all()
+    SU_Utils.new().show_all()
   }
   show_all_cmd.small_icon = "SU_Utils/images/show_all_small.png"
   show_all_cmd.large_icon = "SU_Utils/images/show_all_large.png"
-  show_all_cmd.tooltip, show_all_cmd.menu_text, show_all_cmd.status_bar_text = "Show all layers and entities"
+  show_all_text = "Show all layers and entities"
+  show_all_cmd.tooltip = show_all_text
+  show_all_cmd.menu_text = show_all_text
+  show_all_cmd.status_bar_text = show_all_text
   
   # ----------------------------------------------------------------------------
   # Create and add the Utilities submenu.
