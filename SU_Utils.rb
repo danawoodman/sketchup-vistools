@@ -85,18 +85,16 @@ class SU_Utils
   # Since lock only works on groups or components, this tool will only work 
   # on groups and components.
   def unfreeze_all
-    if not @selection.empty?
-      @model.start_operation "Unfreeze everything"
-        @entities.each { |e| 
-          if e.typename == "Group" or e.typename == "ComponentInstance"
-            if e.locked? and not e.visible?
-              e.locked = false
-              e.visible = true
-            end
+    @model.start_operation "Unfreeze everything"
+      @entities.each { |e| 
+        if e.typename == "Group" or e.typename == "ComponentInstance"
+          if e.locked? and not e.visible?
+            e.locked = false
+            e.visible = true
           end
-        }
-      @model.commit_operation
-    end
+        end
+      }
+    @model.commit_operation
   end
 
   # Show all
