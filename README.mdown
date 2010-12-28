@@ -4,21 +4,25 @@
 
 Google SketchUp Utilities provides a few useful tools to help you in working with layers and entities within your models. The tools are as follows:
 
-* **Hide Layers** -- Hide all layers that are within your selection.
-* **Isolate Layers** -- Show all layers that are within your selection.
-* **Hide Entities** -- Hide all entities (lines/faces/groups/components) that that are within your selection.
-* **Isolate Entities** -- Show all entities (lines/faces/groups/components) that are within your selection.
-* **Show All** -- Show all layers and entities within your model.
+* **Hide Selected Layers** -- Hide all layers that are within your selection.
+* **Isolate Selected Layers** -- Show all layers that are within your selection.
+* **Hide Selected Entities** -- Hide all entities (lines/faces/groups/components) that that are within your selection.
+* **Isolate Selected Entities** -- Show all entities (lines/faces/groups/components) that are within your selection.
+* **Freeze Selected Groups and Components** -- Lock and hide all selected groups and components. 
+* **Unfreeze All** -- Unlock and show all groups and components that are frozen (e.g. if they are both hidden and locked).
+* **Show All** -- Show all layers and entities within your model. This will NOT unfreeze groups or components.
 
 The plugin will create a Toolbar with buttons for each tool. It will also create a right-click context menu called "Utilities" which will let you right click on a selection to perform the above actions. Finally, the plugin will add a menu item to the "Plugins" menu.
 
 You can map these tools to short cut keys to make it even faster to use. Just go to "`File` -> `Preferences`" and go to `Shortcuts`. I mapped mine in the follow ways:
 
-* "Hide Layers" mapped to `Shift H`.
-* "Isolate Layers" mapped to `Shift I`.
-* "Hide Entities" mapped to `H`.
-* "Isolate Entities" mapped to `I`.
-* "Show All" mapped to `Shift A`.
+* "Isolate Selected Layers" mapped to `Shift I`.
+* "Hide Selected Layers" mapped to `Shift H`.
+* "Isolate Selected Entities" mapped to `I`.
+* "Hide Selected Entities" mapped to `H`.
+* "Freeze Selected Groups and Components"  mapped to `Shift F`.
+* "Unfreeze All" mapped to `Alt/Option A`.
+* "Show All Layers and Entities" mapped to `Shift A`.
 
 You can of course map them to any keys you want!
 
