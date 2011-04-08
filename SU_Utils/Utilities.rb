@@ -111,7 +111,7 @@ class SU_Utils
       @model.start_operation "Freeze groups and components"
         puts "Freezing selection..." if @debug
         @selection.each { |e| 
-          if e.typename == "Group" or e.typename == "ComponentInstance"
+          if e.is_a? Sketchup::Group or e.is_a? Sketchup::ComponentInstance
             puts "Making '#{e}' entity hidden and locked..." if @debug
             e.visible = false
             e.locked = true
@@ -131,7 +131,7 @@ class SU_Utils
     @model.start_operation "Unfreeze everything"
       puts "Unfreezing everything..." if @debug
       @entities.each { |e| 
-        if e.typename == "Group" or e.typename == "ComponentInstance"
+        if e.is_a? Sketchup::Group or e.is_a? Sketchup::ComponentInstance
           if e.locked? and not e.visible?
             puts "Making '#{e}' entity visible and unlocked..." if @debug
             e.locked = false
@@ -154,7 +154,7 @@ class SU_Utils
       }
       @entities.each { |e|
         # If the entity is a Group or Component, test if it is frozen.
-        if e.typename == "Group" or e.typename == "ComponentInstance"
+        if e.is_a? Sketchup::Group or e.is_a? Sketchup::ComponentInstance
           if not e.visible? and e.locked?
             puts "'#{e}' is hidden and locked, do no show it..." if @debug
           else
