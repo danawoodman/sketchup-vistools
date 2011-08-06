@@ -15,6 +15,7 @@
 # Name        : Utilities
 # Based On    : n/a
 # Type        : Tool
+# License     : MIT (See LICENSE file)
 # Author      : Dana Woodman
 # Email       : <dana@danawoodman.com>
 # Website     : https://github.com/danawoodman/Google-Sketchup-Utilities
