@@ -44,12 +44,16 @@ module SU_Utils
       puts "Isolating #{selection_layers.length} layers..." if @debug
       layers_to_hide = @layers.to_a - selection_layers.to_a
       if not @selection.empty?
-        @model.start_operation "Isolate selected layers"
-          layers_to_hide.each { |l|
-            puts "Making layer '#{l}' hidden..." if @debug
-            l.visible = false 
-          }
-        @model.commit_operation
+        begin
+          @model.start_operation "Isolate selected layers"
+            layers_to_hide.each { |l|
+              puts "Making layer '#{l}' hidden..." if @debug
+              l.visible = false 
+            }
+          @model.commit_operation
+        rescue Exception => e
+          puts "Error encountered: #{e}" # Show even if debuggnig is off.
+        end
       else
         puts "Nothing selected!!!" if @debug
       end
@@ -60,12 +64,16 @@ module SU_Utils
     def hide_layers
       selection_layers = @selection.collect { |s| s.layer }.to_a
       if not @selection.empty?
-        @model.start_operation "Hide selected layers"
-          selection_layers.each { |l|
-            puts "Making layer '#{l}' hidden..." if @debug
-            l.visible = false
-          }
-        @model.commit_operation
+        begin
+          @model.start_operation "Hide selected layers"
+            selection_layers.each { |l|
+              puts "Making layer '#{l}' hidden..." if @debug
+              l.visible = false
+            }
+          @model.commit_operation
+        rescue Exception => e
+          puts "Error encountered: #{e}" # Show even if debuggnig is off.
+        end
       else
         puts "Nothing selected!!!" if @debug
       end
@@ -75,14 +83,18 @@ module SU_Utils
     # Hides all entities other than the selected entity.
     def isolate_entities
       if !@selection.empty?
-        @model.start_operation "Isolate selected entities"
-          entities_to_hide = @entities.to_a - @selection.to_a
-          puts "Isolating #{entities_to_hide.length} entities..." if @debug
-          entities_to_hide.each { |e|
-            puts "Making '#{e}' entity hidden..." if @debug
-            e.visible = false
-          }
-        @model.commit_operation
+        begin
+          @model.start_operation "Isolate selected entities"
+            entities_to_hide = @entities.to_a - @selection.to_a
+            puts "Isolating #{entities_to_hide.length} entities..." if @debug
+            entities_to_hide.each { |e|
+              puts "Making '#{e}' entity hidden..." if @debug
+              e.visible = false
+            }
+          @model.commit_operation
+        rescue Exception => e
+          puts "Error encountered: #{e}" # Show even if debuggnig is off.
+        end
       else
         puts "Nothing selected!!!" if @debug
       end
@@ -92,12 +104,16 @@ module SU_Utils
     # Hide all entities within the selection.
     def hide_entities
       if not @selection.empty?
-        @model.start_operation "Hide selected entities"
-          @selection.each { |e|
-            puts "Making '#{e}' entity hidden..." if @debug
-            e.visible = false
-          }
-        @model.commit_operation
+        begin
+          @model.start_operation "Hide selected entities"
+            @selection.each { |e|
+              puts "Making '#{e}' entity hidden..." if @debug
+              e.visible = false
+            }
+          @model.commit_operation        
+        rescue Exception => e
+          puts "Error encountered: #{e}" # Show even if debuggnig is off.
+        end
       else
         puts "Nothing selected!!!" if @debug
       end
@@ -109,16 +125,20 @@ module SU_Utils
     # on groups and components.
     def freeze_groups_and_components
       if not @selection.empty?
-        @model.start_operation "Freeze groups and components"
-          puts "Freezing selection..." if @debug
-          @selection.each { |e| 
-            if e.is_a? Sketchup::Group or e.is_a? Sketchup::ComponentInstance
-              puts "Making '#{e}' entity hidden and locked..." if @debug
-              e.visible = false
-              e.locked = true
-            end
-          }
-        @model.commit_operation
+        begin
+          @model.start_operation "Freeze groups and components"
+            puts "Freezing selection..." if @debug
+            @selection.each { |e| 
+              if e.is_a? Sketchup::Group or e.is_a? Sketchup::ComponentInstance
+                puts "Making '#{e}' entity hidden and locked..." if @debug
+                e.visible = false
+                e.locked = true
+              end
+            }
+          @model.commit_operation
+        rescue Exception => e
+          puts "Error encountered: #{e}" # Show even if debuggnig is off.
+        end
       else
         puts "Nothing selected!!!" if @debug
       end
@@ -129,46 +149,53 @@ module SU_Utils
     # Since lock only works on groups or components, this tool will only work 
     # on groups and components.
     def unfreeze_all
-      @model.start_operation "Unfreeze everything"
-        puts "Unfreezing everything..." if @debug
-        @entities.each { |e| 
-          if e.is_a? Sketchup::Group or e.is_a? Sketchup::ComponentInstance
-            if e.locked? and not e.visible?
-              puts "Making '#{e}' entity visible and unlocked..." if @debug
-              e.locked = false
-              e.visible = true
+      begin
+        @model.start_operation "Unfreeze everything"
+          puts "Unfreezing everything..." if @debug
+          @entities.each { |e| 
+            if e.is_a? Sketchup::Group or e.is_a? Sketchup::ComponentInstance
+              if e.locked? and not e.visible?
+                puts "Making '#{e}' entity visible and unlocked..." if @debug
+                e.locked = false
+                e.visible = true
+              end
             end
-          end
-        }
-      @model.commit_operation
+          }
+        @model.commit_operation
+      rescue Exception => e
+        puts "Error encountered: #{e}" # Show even if debuggnig is off.
+      end
     end
 
     # Show all
     # Unhides all hidden layers and entities. If a layer is locked and hidden, 
     # assume it is frozen, so do not unhide it.
     def show_all
-      @model.start_operation "Show all layers and entities"
-        puts "Showing all layers and entities..." if @debug
-        @layers.each { |l|
-          puts "Making layer '#{l}' visible..." if @debug
-          l.visible = true
-        }
-        @entities.each { |e|
-          # If the entity is a Group or Component, test if it is frozen.
-          if e.is_a? Sketchup::Group or e.is_a? Sketchup::ComponentInstance
-            if not e.visible? and e.locked?
-              puts "'#{e}' is hidden and locked, do no show it..." if @debug
+      begin
+        @model.start_operation "Show all layers and entities"
+          puts "Showing all layers and entities..." if @debug
+          @layers.each { |l|
+            puts "\tMaking layer '#{l}' visible..." if @debug
+            l.visible = true
+          }
+          @entities.each { |e|
+            # If the entity is a Group or Component, test if it is frozen.
+            if e.is_a? Sketchup::Group or e.is_a? Sketchup::ComponentInstance
+              if not e.visible? and e.locked?
+                puts "\t'#{e}' is hidden and locked, do no show it..." if @debug
+              else
+                puts "\tMaking '#{e}' entity visible..." if @debug
+                e.visible = true
+              end
             else
-              puts "Making '#{e}' entity visible..." if @debug
+              puts "\tMaking '#{e}' entity visible..." if @debug
               e.visible = true
             end
-          else
-            puts "Making '#{e}' entity visible..." if @debug
-            e.visible = true
-          end
-        
-        }
-      @model.commit_operation
+          }
+        @model.commit_operation
+      rescue Exception => e
+        puts "Error encountered: #{e}" # Show even if debuggnig is off.
+      end
     end
 
   end
