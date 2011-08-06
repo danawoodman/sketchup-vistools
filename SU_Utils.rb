@@ -47,7 +47,7 @@ UTILITIES_DEBUG = false
 UTILITIES_BASE_PATH = File.dirname(__FILE__)
 
 # Register plugin as an extension.
-utilities_extension = SketchupExtension.new "Utilies", File.join(UTILITIES_BASE_PATH, "SU_Utils/Utilities.rb")
+utilities_extension = SketchupExtension.new "Utilities", File.join(UTILITIES_BASE_PATH, "SU_Utils/Utilities.rb")
 utilities_extension.version = '1.0'
 utilities_extension.creator = 'Dana Woodman'
 utilities_extension.copyright = '2010-2011'
