@@ -24,19 +24,33 @@
 #
 # Version     : 1.0
 #
-# Menu Items  : Edit -> Change Material
-#
-# Toolbar     : Change Material - Includes one large and one small icon.
-#
-# Context-Menu: Change Material
-#
-# Description : Changes materials of selected entities.
-#             
-#             : When the tool is activated, a pop-up dialog appears asking you 
-#             : to select the face and back materials for the selection.
-#
-# To Install  : Place the SU_MaterialChanger.rb Ruby script and the 
-#             : `SU_MaterialChanger` directory in the SketchUp Plugins folder.
+# Menu Items  : Plugins -> Utilities -> 
+#             :                       Isolate Selected Layers
+#             :                       Hide Selected Layers
+#             :                       Isolate Selected Entities
+#             :                       Hide Selected Entities
+#             :                       Freeze Selected Groups and Components
+#             :                       Unfreeze All
+#             :                       Show All Layers and Entities
+#             :
+# Toolbar     : Utilities - Includes one large and one small icon.
+#             :
+# Context-Menu: Utilities -> 
+#             :            Isolate Selected Layers
+#             :            Hide Selected Layers
+#             :            Isolate Selected Entities
+#             :            Hide Selected Entities
+#             :            Freeze Selected Groups and Components
+#             :            Unfreeze All
+#             :            Show All Layers and Entities
+#             :
+# Description : Google SketchUp Utilities provides a few useful tools to help 
+#             : you in working with layers and entities within your models.
+#             :
+# To Install  : Place the SU_Utils.rb Ruby script and the 
+#             : `SU_Utils` directory in the SketchUp Plugins folder or 
+#             : install with the Plugin Installer Tool: 
+#             : http://www.extendsketchup.com/plugins/plugin-installer-tool/
 #-----------------------------------------------------------------------------
 
 require 'sketchup.rb'
