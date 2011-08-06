@@ -189,9 +189,12 @@ if not file_loaded?(File.join(UTILITIES_BASE_PATH, "SU_Utils/Utilities.rb"))
   # Create the various Utility commands
   # ----------------------------------------------------------------------------
   
+  # Initialize utils.
+  utils = SU_Utils::Utilities.new()
+  
   # Create the hide_layers command.
   hide_layers_cmd = UI::Command.new("Hide Layers") { 
-    SU_Utils.new().hide_layers()
+    utils.hide_layers()
   }
   hide_layers_cmd.small_icon = File.join(UTILITIES_BASE_PATH, "SU_Utils/images/hide_layers_small.png")
   hide_layers_cmd.large_icon = File.join(UTILITIES_BASE_PATH, "SU_Utils/images/hide_layers_large.png")
@@ -202,7 +205,7 @@ if not file_loaded?(File.join(UTILITIES_BASE_PATH, "SU_Utils/Utilities.rb"))
   
   # Create the isolate_layers command.
   isolate_layers_cmd = UI::Command.new("Isolate Layers") { 
-    SU_Utils.new().isolate_layers()
+    utils.isolate_layers()
   }
   isolate_layers_cmd.small_icon = File.join(UTILITIES_BASE_PATH, "SU_Utils/images/isolate_layers_small.png")
   isolate_layers_cmd.large_icon = File.join(UTILITIES_BASE_PATH, "SU_Utils/images/isolate_layers_large.png")
@@ -213,7 +216,7 @@ if not file_loaded?(File.join(UTILITIES_BASE_PATH, "SU_Utils/Utilities.rb"))
   
   # Create the hide_entities command.
   hide_entities_cmd = UI::Command.new("Hide Entities") { 
-    SU_Utils.new().hide_entities()
+    utils.hide_entities()
   }
   hide_entities_cmd.small_icon = File.join(UTILITIES_BASE_PATH, "SU_Utils/images/hide_entities_small.png")
   hide_entities_cmd.large_icon = File.join(UTILITIES_BASE_PATH, "SU_Utils/images/hide_entities_large.png")
@@ -224,7 +227,7 @@ if not file_loaded?(File.join(UTILITIES_BASE_PATH, "SU_Utils/Utilities.rb"))
   
   # Create the hide_layers command.
   isolate_entities_cmd = UI::Command.new("Isolate Entities") { 
-    SU_Utils.new().isolate_entities()
+    utils.isolate_entities()
   }
   isolate_entities_cmd.small_icon = File.join(UTILITIES_BASE_PATH, "SU_Utils/images/isolate_entities_small.png")
   isolate_entities_cmd.large_icon = File.join(UTILITIES_BASE_PATH, "SU_Utils/images/isolate_entities_large.png")
@@ -235,7 +238,7 @@ if not file_loaded?(File.join(UTILITIES_BASE_PATH, "SU_Utils/Utilities.rb"))
   
   # Create the freeze_entities command.
   freeze_groups_and_components_cmd = UI::Command.new("Freeze Groups and Components") { 
-    SU_Utils.new().freeze_groups_and_components()
+    utils.freeze_groups_and_components()
   }
   freeze_groups_and_components_cmd.small_icon = File.join(UTILITIES_BASE_PATH, "SU_Utils/images/freeze_groups_and_components_small.png")
   freeze_groups_and_components_cmd.large_icon = File.join(UTILITIES_BASE_PATH, "SU_Utils/images/freeze_groups_and_components_large.png")
@@ -246,7 +249,7 @@ if not file_loaded?(File.join(UTILITIES_BASE_PATH, "SU_Utils/Utilities.rb"))
   
   # Create the unfreeze_all command.
   unfreeze_all_cmd = UI::Command.new("Unfreeze All") { 
-    SU_Utils.new().unfreeze_all()
+    utils.unfreeze_all()
   }
   unfreeze_all_cmd.small_icon = File.join(UTILITIES_BASE_PATH, "SU_Utils/images/unfreeze_all_small.png")
   unfreeze_all_cmd.large_icon = File.join(UTILITIES_BASE_PATH, "SU_Utils/images/unfreeze_all_large.png")
@@ -257,7 +260,7 @@ if not file_loaded?(File.join(UTILITIES_BASE_PATH, "SU_Utils/Utilities.rb"))
   
   # Create the hide_layers command.
   show_all_cmd = UI::Command.new("Show All") { 
-    SU_Utils.new().show_all()
+    utils.show_all()
   }
   show_all_cmd.small_icon = File.join(UTILITIES_BASE_PATH, "SU_Utils/images/show_all_small.png")
   show_all_cmd.large_icon = File.join(UTILITIES_BASE_PATH, "SU_Utils/images/show_all_large.png")
