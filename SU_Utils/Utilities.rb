@@ -73,6 +73,7 @@ module SU_Utils
           @model.commit_operation
         rescue Exception => e
           puts "Error encountered: #{e}" # Show even if debuggnig is off.
+          @model.abort_operation
         end
       else
         puts "Nothing selected!!!" if @debug
@@ -94,6 +95,7 @@ module SU_Utils
           @model.commit_operation
         rescue Exception => e
           puts "Error encountered: #{e}" # Show even if debuggnig is off.
+          @model.abort_operation
         end
       else
         puts "Nothing selected!!!" if @debug
@@ -113,6 +115,7 @@ module SU_Utils
           @model.commit_operation        
         rescue Exception => e
           puts "Error encountered: #{e}" # Show even if debuggnig is off.
+          @model.abort_operation
         end
       else
         puts "Nothing selected!!!" if @debug
@@ -138,6 +141,7 @@ module SU_Utils
           @model.commit_operation
         rescue Exception => e
           puts "Error encountered: #{e}" # Show even if debuggnig is off.
+          @model.abort_operation
         end
       else
         puts "Nothing selected!!!" if @debug
@@ -164,6 +168,7 @@ module SU_Utils
         @model.commit_operation
       rescue Exception => e
         puts "Error encountered: #{e}" # Show even if debuggnig is off.
+        @model.abort_operation
       end
     end
 
@@ -195,6 +200,7 @@ module SU_Utils
         @model.commit_operation
       rescue Exception => e
         puts "Error encountered: #{e}" # Show even if debuggnig is off.
+        @model.abort_operation
       end
     end
 
