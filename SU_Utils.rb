@@ -12,20 +12,20 @@
 #
 #-----------------------------------------------------------------------------
 #
-# Name        : Utilities
+# Name        : VisTools
 # Based On    : n/a
 # Type        : Tool
 # License     : MIT (See LICENSE file)
 # Author      : Dana Woodman
 # Email       : <dana@danawoodman.com>
-# Website     : https://github.com/danawoodman/Google-Sketchup-Utilities
+# Website     : https://github.com/danawoodman/Google-Sketchup-VisTools
 # Blog        : n/a
 #
 # Maintenance : Please report all bugs or strange behavior to <dana@danawoodman.com>
 #
 # Version     : 1.0
 #
-# Menu Items  : Plugins -> Utilities -> 
+# Menu Items  : Plugins -> VisTools -> 
 #             :                       Isolate Selected Layers
 #             :                       Hide Selected Layers
 #             :                       Isolate Selected Entities
@@ -34,9 +34,9 @@
 #             :                       Unfreeze All
 #             :                       Show All Layers and Entities
 #             :
-# Toolbar     : Utilities - Includes one large and one small icon.
+# Toolbar     : VisTools - Includes one large and one small icon.
 #             :
-# Context-Menu: Utilities -> 
+# Context-Menu: VisTools -> 
 #             :            Isolate Selected Layers
 #             :            Hide Selected Layers
 #             :            Isolate Selected Entities
@@ -45,7 +45,7 @@
 #             :            Unfreeze All
 #             :            Show All Layers and Entities
 #             :
-# Description : Google SketchUp Utilities provides a few useful tools to help 
+# Description : Google SketchUp VisTools provides a few useful tools to help 
 #             : you in working with layers and entities within your models.
 #             :
 # To Install  : Place the SU_Utils.rb Ruby script and the 
@@ -58,9 +58,9 @@ require 'sketchup.rb'
 require 'extensions.rb'
 
 # Register plugin as an extension.
-utilities_extension = SketchupExtension.new "Utilities", File.join(File.dirname(__FILE__), "SU_Utils/Utilities.rb")
-utilities_extension.version = '1.0'
+utilities_extension = SketchupExtension.new "VisTools", File.join(File.dirname(__FILE__), "VisTools/core.rb")
+utilities_extension.version = '1.0.1'
 utilities_extension.creator = 'Dana Woodman'
-utilities_extension.copyright = '2010-2011'
-utilities_extension.description = "Adds some useful tools within SketchUp like hide/show entities and layers, freeze/unfreeze and show/unfreeze all."
+utilities_extension.copyright = '2012'
+utilities_extension.description = "Adds some useful visibility tools within SketchUp like hide/show entities and layers, freeze/unfreeze and show/unfreeze all."
 Sketchup.register_extension utilities_extension, true
