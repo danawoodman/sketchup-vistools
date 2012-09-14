@@ -2,7 +2,7 @@
 
 ## Description
 
-SketchUp Vistools provides a few useful tools to help you in working with layers and entities within your models. The tools are as follows:
+SketchUp VisTools provides a few useful tools to help you in working with layers and entities within your models. The tools are as follows:
 
 - **Hide Selected Layers** -- Hide all layers that are within your selection.
 - **Isolate Selected Layers** -- Show only layers that are within your selection.
