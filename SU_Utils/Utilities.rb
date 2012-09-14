@@ -25,6 +25,7 @@
 # TODO: Get show_all to show hidden entites WITHIN groups.
 
 
+
 module SU_Utils
 
   class Utilities
@@ -34,7 +35,8 @@ module SU_Utils
       @selection = @model.selection
       @entities = @model.entities
       @layers = @model.layers
-      @debug = UTILITIES_DEBUG
+      @debug = false
+      @base_path = File.dirname(__FILE__)
     end
 
     # Isolate selected layers.
@@ -216,7 +218,7 @@ end
 # menus and the menu items for the tools.
 #
 # Only load these tools if the SU_Utils.rb file is not already loaded.
-if not file_loaded?(File.join(UTILITIES_BASE_PATH, "SU_Utils/Utilities.rb"))
+if not file_loaded?(File.join(@base_path, "Utilities.rb"))
   
   # ----------------------------------------------------------------------------
   # Create the various Utility commands
@@ -229,8 +231,8 @@ if not file_loaded?(File.join(UTILITIES_BASE_PATH, "SU_Utils/Utilities.rb"))
   hide_layers_cmd = UI::Command.new("Hide Layers") { 
     utils.hide_layers()
   }
-  hide_layers_cmd.small_icon = File.join(UTILITIES_BASE_PATH, "SU_Utils/images/hide_layers_small.png")
-  hide_layers_cmd.large_icon = File.join(UTILITIES_BASE_PATH, "SU_Utils/images/hide_layers_large.png")
+  hide_layers_cmd.small_icon = File.join(@base_path, "images/hide_layers_small.png")
+  hide_layers_cmd.large_icon = File.join(@base_path, "images/hide_layers_large.png")
   hide_layers_text = "Hide selected layers"
   hide_layers_cmd.tooltip = hide_layers_text
   hide_layers_cmd.menu_text = hide_layers_text
@@ -240,8 +242,8 @@ if not file_loaded?(File.join(UTILITIES_BASE_PATH, "SU_Utils/Utilities.rb"))
   isolate_layers_cmd = UI::Command.new("Isolate Layers") { 
     utils.isolate_layers()
   }
-  isolate_layers_cmd.small_icon = File.join(UTILITIES_BASE_PATH, "SU_Utils/images/isolate_layers_small.png")
-  isolate_layers_cmd.large_icon = File.join(UTILITIES_BASE_PATH, "SU_Utils/images/isolate_layers_large.png")
+  isolate_layers_cmd.small_icon = File.join(@base_path, "images/isolate_layers_small.png")
+  isolate_layers_cmd.large_icon = File.join(@base_path, "images/isolate_layers_large.png")
   isolate_layers_text = "Isolate selected layers"
   isolate_layers_cmd.tooltip = isolate_layers_text
   isolate_layers_cmd.menu_text = isolate_layers_text
@@ -251,8 +253,8 @@ if not file_loaded?(File.join(UTILITIES_BASE_PATH, "SU_Utils/Utilities.rb"))
   hide_entities_cmd = UI::Command.new("Hide Entities") { 
     utils.hide_entities()
   }
-  hide_entities_cmd.small_icon = File.join(UTILITIES_BASE_PATH, "SU_Utils/images/hide_entities_small.png")
-  hide_entities_cmd.large_icon = File.join(UTILITIES_BASE_PATH, "SU_Utils/images/hide_entities_large.png")
+  hide_entities_cmd.small_icon = File.join(@base_path, "images/hide_entities_small.png")
+  hide_entities_cmd.large_icon = File.join(@base_path, "images/hide_entities_large.png")
   hide_entities_text = "Hide selected entities"
   hide_entities_cmd.tooltip = hide_entities_text
   hide_entities_cmd.menu_text = hide_entities_text
@@ -262,8 +264,8 @@ if not file_loaded?(File.join(UTILITIES_BASE_PATH, "SU_Utils/Utilities.rb"))
   isolate_entities_cmd = UI::Command.new("Isolate Entities") { 
     utils.isolate_entities()
   }
-  isolate_entities_cmd.small_icon = File.join(UTILITIES_BASE_PATH, "SU_Utils/images/isolate_entities_small.png")
-  isolate_entities_cmd.large_icon = File.join(UTILITIES_BASE_PATH, "SU_Utils/images/isolate_entities_large.png")
+  isolate_entities_cmd.small_icon = File.join(@base_path, "images/isolate_entities_small.png")
+  isolate_entities_cmd.large_icon = File.join(@base_path, "images/isolate_entities_large.png")
   isolate_entities_text = "Isolate selected entities"
   isolate_entities_cmd.tooltip = isolate_entities_text
   isolate_entities_cmd.menu_text = isolate_entities_text
@@ -273,8 +275,8 @@ if not file_loaded?(File.join(UTILITIES_BASE_PATH, "SU_Utils/Utilities.rb"))
   freeze_groups_and_components_cmd = UI::Command.new("Freeze Groups and Components") { 
     utils.freeze_groups_and_components()
   }
-  freeze_groups_and_components_cmd.small_icon = File.join(UTILITIES_BASE_PATH, "SU_Utils/images/freeze_groups_and_components_small.png")
-  freeze_groups_and_components_cmd.large_icon = File.join(UTILITIES_BASE_PATH, "SU_Utils/images/freeze_groups_and_components_large.png")
+  freeze_groups_and_components_cmd.small_icon = File.join(@base_path, "images/freeze_groups_and_components_small.png")
+  freeze_groups_and_components_cmd.large_icon = File.join(@base_path, "images/freeze_groups_and_components_large.png")
   freeze_groups_and_components_text = "Freeze groups and components"
   freeze_groups_and_components_cmd.tooltip = freeze_groups_and_components_text
   freeze_groups_and_components_cmd.menu_text = freeze_groups_and_components_text
@@ -284,8 +286,8 @@ if not file_loaded?(File.join(UTILITIES_BASE_PATH, "SU_Utils/Utilities.rb"))
   unfreeze_all_cmd = UI::Command.new("Unfreeze All") { 
     utils.unfreeze_all()
   }
-  unfreeze_all_cmd.small_icon = File.join(UTILITIES_BASE_PATH, "SU_Utils/images/unfreeze_all_small.png")
-  unfreeze_all_cmd.large_icon = File.join(UTILITIES_BASE_PATH, "SU_Utils/images/unfreeze_all_large.png")
+  unfreeze_all_cmd.small_icon = File.join(@base_path, "images/unfreeze_all_small.png")
+  unfreeze_all_cmd.large_icon = File.join(@base_path, "images/unfreeze_all_large.png")
   unfreeze_all_text = "Unfreeze all"
   unfreeze_all_cmd.tooltip = unfreeze_all_text
   unfreeze_all_cmd.menu_text = unfreeze_all_text
@@ -295,8 +297,8 @@ if not file_loaded?(File.join(UTILITIES_BASE_PATH, "SU_Utils/Utilities.rb"))
   show_all_cmd = UI::Command.new("Show All") { 
     utils.show_all()
   }
-  show_all_cmd.small_icon = File.join(UTILITIES_BASE_PATH, "SU_Utils/images/show_all_small.png")
-  show_all_cmd.large_icon = File.join(UTILITIES_BASE_PATH, "SU_Utils/images/show_all_large.png")
+  show_all_cmd.small_icon = File.join(@base_path, "images/show_all_small.png")
+  show_all_cmd.large_icon = File.join(@base_path, "images/show_all_large.png")
   show_all_text = "Show all layers and entities"
   show_all_cmd.tooltip = show_all_text
   show_all_cmd.menu_text = show_all_text
@@ -346,4 +348,4 @@ if not file_loaded?(File.join(UTILITIES_BASE_PATH, "SU_Utils/Utilities.rb"))
 
 end
 
-file_loaded(File.join(UTILITIES_BASE_PATH, "SU_Utils/Utilities.rb"))
+file_loaded(File.join(@base_path, "Utilities.rb"))
