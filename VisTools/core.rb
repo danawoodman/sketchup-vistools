@@ -26,7 +26,7 @@
 
 module SU_Utils
 
-  class Utilities
+  class VisTools
   
     def initialize
       @model = Sketchup.active_model
@@ -216,14 +216,14 @@ end
 # menus and the menu items for the tools.
 #
 # Only load these tools if the SU_Utils.rb file is not already loaded.
-if not file_loaded?(File.join(@base_path, "Utilities.rb"))
+if not file_loaded?(File.join(@base_path, "core.rb"))
   
   # ----------------------------------------------------------------------------
   # Create the various Utility commands
   # ----------------------------------------------------------------------------
   
   # Initialize utils.
-  utils = SU_Utils::Utilities.new()
+  utils = SU_Utils::VisTools.new()
   
   # Create the hide_layers command.
   hide_layers_cmd = UI::Command.new("Hide Layers") { 
@@ -303,9 +303,9 @@ if not file_loaded?(File.join(@base_path, "Utilities.rb"))
   show_all_cmd.status_bar_text = show_all_text
   
   # ----------------------------------------------------------------------------
-  # Create and add the Utilities submenu.
+  # Create and add the VisTools submenu.
   # ----------------------------------------------------------------------------
-  utils_submenu = UI.menu("Plugins").add_submenu "Utilities"
+  utils_submenu = UI.menu("Plugins").add_submenu "VisTools"
   utils_submenu.add_item isolate_layers_cmd
   utils_submenu.add_item hide_layers_cmd
   utils_submenu.add_item isolate_entities_cmd
@@ -315,11 +315,11 @@ if not file_loaded?(File.join(@base_path, "Utilities.rb"))
   utils_submenu.add_item show_all_cmd
   
   # ----------------------------------------------------------------------------
-  # Create and add the Utilities context menu shortcuts.
+  # Create and add the VisTools context menu shortcuts.
   # ----------------------------------------------------------------------------
   UI.add_context_menu_handler do |context_menu|
     context_menu.add_separator
-    utils_context_submenu = context_menu.add_submenu "Utilities"
+    utils_context_submenu = context_menu.add_submenu "VisTools"
     utils_context_submenu.add_item isolate_layers_cmd
     utils_context_submenu.add_item hide_layers_cmd
     utils_context_submenu.add_item isolate_entities_cmd
@@ -330,9 +330,9 @@ if not file_loaded?(File.join(@base_path, "Utilities.rb"))
   end
 
   # ----------------------------------------------------------------------------
-  # Create and add the Utilities toolbar.
+  # Create and add the VisTools toolbar.
   # ----------------------------------------------------------------------------
-  utils_toolbar = UI::Toolbar.new("Utilities")
+  utils_toolbar = UI::Toolbar.new("VisTools")
   utils_toolbar.add_item isolate_layers_cmd
   utils_toolbar.add_item hide_layers_cmd
   utils_toolbar.add_item isolate_entities_cmd
@@ -346,4 +346,4 @@ if not file_loaded?(File.join(@base_path, "Utilities.rb"))
 
 end
 
-file_loaded(File.join(@base_path, "Utilities.rb"))
+file_loaded(File.join(@base_path, "core.rb"))
