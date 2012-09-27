@@ -28,7 +28,7 @@ You can of course map them to any keys you want!
 
 ## Installation
 
-Copy the file `VisTools.rb` and the directory `VisTools` into your SketchUp plugin directory:
+Copy the file `load_VisTools.rb` and the directory `IntrepidBear/VisTools/` into your SketchUp plugin directory:
 
 On a **Mac** it is usually here:
 
