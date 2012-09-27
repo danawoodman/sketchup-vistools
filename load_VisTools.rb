@@ -58,7 +58,7 @@ require 'sketchup.rb'
 require 'extensions.rb'
 
 # Register plugin as an extension.
-utilities_extension = SketchupExtension.new "VisTools", File.join(File.dirname(__FILE__), "VisTools/core.rb")
+utilities_extension = SketchupExtension.new "VisTools", File.join(File.dirname(__FILE__), "IntrepidBear/VisTools/VisTools.rb")
 utilities_extension.version = '1.0.1'
 utilities_extension.creator = 'Dana Woodman'
 utilities_extension.copyright = '2012'
