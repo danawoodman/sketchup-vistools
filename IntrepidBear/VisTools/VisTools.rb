@@ -1,10 +1,20 @@
-# 
-# Copyright 2012, Dana Woodman <dana@danawoodman.com>
+#-----------------------------------------------------------------------------
+#
+# Copyright 2012 Dana Woodman <dana@danawoodman.com>. All Rights Reserved.
+#
+# Permission to use, copy, modify, and distribute this software for
+# any purpose and without fee is hereby granted, provided the above
+# copyright notice appear in all copies.
+#
+# THIS SOFTWARE IS PROVIDED "AS IS" AND WITHOUT ANY EXPRESS OR
+# IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED
+# WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+#
+#-----------------------------------------------------------------------------
 # 
 # Please see the README.md file for help and instructions.
 #
-# Released under an MIT licence. Please see the LICENCE file.
-# 
+#-----------------------------------------------------------------------------
 
 module IntrepidBear
 

@@ -1,6 +1,6 @@
 #-----------------------------------------------------------------------------
 #
-# Copyright 2012 Dana Woodman. All Rights Reserved.
+# Copyright 2012 Dana Woodman <dana@danawoodman.com>. All Rights Reserved.
 #
 # Permission to use, copy, modify, and distribute this software for
 # any purpose and without fee is hereby granted, provided the above
