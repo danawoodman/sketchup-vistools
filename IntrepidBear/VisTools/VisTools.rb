@@ -1,3 +1,10 @@
+# 
+# Copyright 2012, Dana Woodman <dana@danawoodman.com>
+# 
+# Please see the README.md file for help and instructions.
+#
+# Released under an MIT licence. Please see the LICENCE file.
+# 
 
 module IntrepidBear
 
