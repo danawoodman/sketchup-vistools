@@ -40,7 +40,7 @@ module IntrepidBear
           @model.start_operation "Isolate selected layers"
             layers_to_hide.each { |l|
               puts "Making layer '#{l}' hidden..." if @debug
-              l.visible = false 
+              l.visible = false unless l == @model.active_layer 
             }
           @model.commit_operation
         rescue Exception => e
@@ -60,7 +60,7 @@ module IntrepidBear
           @model.start_operation "Hide selected layers"
             selection_layers.each { |l|
               puts "Making layer '#{l}' hidden..." if @debug
-              l.visible = false
+              l.visible = false unless l == @model.active_layer
             }
           @model.commit_operation
         rescue Exception => e
