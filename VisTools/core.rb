@@ -1,30 +1,5 @@
-# ------------------------------------------------------------------------------
-# Core class
-# ------------------------------------------------------------------------------
 
-# SU_Utils: This is the main utility class.
-#
-# Encapsulate all the utilities into a Class so there is no conflict with other
-# plugins. 
-#
-# This class provides some useful tools for Google SketchUp: 
-# 
-# * hide_layers
-# * isolate_layers
-# * hide_entities
-# * isolate_entities
-# * freeze_groups_and_components
-# * unfreeze_all
-# * show_all
-# 
-# These tools can be mapped to shortcut keys to make it easy to work on 
-# a specific piece of your model.
-# 
-# See the README for more information about this plugin.
-# 
-# TODO: Get show_all to show hidden entites WITHIN groups.
-
-module SU_Utils
+module IntrepidBear
 
   class VisTools
   
@@ -215,7 +190,7 @@ end
 # Create the commands for the utility class, create and show the toolbar, context 
 # menus and the menu items for the tools.
 #
-# Only load these tools if the SU_Utils.rb file is not already loaded.
+# Only load these tools if this file is not already loaded.
 if not file_loaded?(File.join(@base_path, "core.rb"))
   
   # ----------------------------------------------------------------------------
@@ -223,7 +198,7 @@ if not file_loaded?(File.join(@base_path, "core.rb"))
   # ----------------------------------------------------------------------------
   
   # Initialize utils.
-  utils = SU_Utils::VisTools.new()
+  utils = IntrepidBear::VisTools.new()
   
   # Create the hide_layers command.
   hide_layers_cmd = UI::Command.new("Hide Layers") { 
