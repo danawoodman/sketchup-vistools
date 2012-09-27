@@ -15,7 +15,7 @@
 # Name        : VisTools
 # Based On    : n/a
 # Type        : Tool
-# License     : MIT (See LICENSE file)
+# License     : MIT (See VISTOOLS_LICENSE file)
 # Author      : Dana Woodman
 # Email       : <dana@danawoodman.com>
 # Website     : https://github.com/danawoodman/sketchup-vistools
