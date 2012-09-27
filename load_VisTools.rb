@@ -58,9 +58,9 @@ require 'sketchup.rb'
 require 'extensions.rb'
 
 # Register plugin as an extension.
-utilities_extension = SketchupExtension.new "VisTools", File.join(File.dirname(__FILE__), "IntrepidBear/VisTools/VisTools.rb")
-utilities_extension.version = '1.0.1'
-utilities_extension.creator = 'Dana Woodman'
-utilities_extension.copyright = '2012'
-utilities_extension.description = "Adds some useful visibility tools within SketchUp like hide/show entities and layers, freeze/unfreeze and show/unfreeze all."
-Sketchup.register_extension utilities_extension, true
+vistools_extension = SketchupExtension.new 'VisTools', File.join(File.dirname(__FILE__), 'IntrepidBear/VisTools/VisTools.rb')
+vistools_extension.version = '1.0.1'
+vistools_extension.creator = 'Dana Woodman'
+vistools_extension.copyright = '2012'
+vistools_extension.description = 'Adds some useful visibility tools within SketchUp like hide/show entities and layers, freeze/unfreeze and show/unfreeze all.'
+Sketchup.register_extension vistools_extension, true
