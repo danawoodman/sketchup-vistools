@@ -1,6 +1,6 @@
 #-----------------------------------------------------------------------------
 #
-# Copyright 2010 Dana Woodman, Phoenix Woodworks. All Rights Reserved.
+# Copyright 2012 Dana Woodman. All Rights Reserved.
 #
 # Permission to use, copy, modify, and distribute this software for
 # any purpose and without fee is hereby granted, provided the above
@@ -18,7 +18,7 @@
 # License     : MIT (See LICENSE file)
 # Author      : Dana Woodman
 # Email       : <dana@danawoodman.com>
-# Website     : https://github.com/danawoodman/Google-Sketchup-VisTools
+# Website     : https://github.com/danawoodman/sketchup-vistools
 # Blog        : n/a
 #
 # Maintenance : Please report all bugs or strange behavior to <dana@danawoodman.com>
@@ -48,8 +48,8 @@
 # Description : Google SketchUp VisTools provides a few useful tools to help 
 #             : you in working with layers and entities within your models.
 #             :
-# To Install  : Place the SU_Utils.rb Ruby script and the 
-#             : `SU_Utils` directory in the SketchUp Plugins folder or 
+# To Install  : Place the VisTools.rb Ruby script and the 
+#             : `VisTools` directory in the SketchUp Plugins folder or 
 #             : install with the Plugin Installer Tool: 
 #             : http://www.extendsketchup.com/plugins/plugin-installer-tool/
 #-----------------------------------------------------------------------------
