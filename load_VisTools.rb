@@ -23,7 +23,7 @@
 #
 # Maintenance : Please report all bugs or strange behavior to <dana@danawoodman.com>
 #
-# Version     : 1.0
+# Version     : 1.1
 #
 # Menu Items  : Plugins -> VisTools -> 
 #             :                       Isolate Selected Layers
