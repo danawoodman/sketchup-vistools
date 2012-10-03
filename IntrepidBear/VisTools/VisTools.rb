@@ -12,7 +12,7 @@
 #
 #-----------------------------------------------------------------------------
 # 
-# Please see the VISTOOLS_README.md file for help and instructions.
+# Please see the README.md file for help and instructions.
 #
 #-----------------------------------------------------------------------------
 

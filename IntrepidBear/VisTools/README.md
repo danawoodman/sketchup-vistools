@@ -43,7 +43,7 @@ On **Windows** it should be here:
 
 ## License
 
-Released under the MIT License. See the `VISTOOLS_LICENCE` file for more information.
+Released under the MIT License. See the `LICENCE` file for more information.
 
 
 ## Credits
